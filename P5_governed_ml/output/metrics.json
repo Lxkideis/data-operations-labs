@@ -1,0 +1,96 @@
+{
+  "dataset": "3000 independent synthetic operations cases ordered by case id",
+  "features": [
+    "queue_hours",
+    "amount_log",
+    "prior_exceptions"
+  ],
+  "blocked_columns": [
+    "resolution_code",
+    "case_id",
+    "segment",
+    "target"
+  ],
+  "split": {
+    "train": 1800,
+    "validation": 600,
+    "test": 600
+  },
+  "threshold_selected_on_validation": 0.3,
+  "validation_recall_target": 0.75,
+  "test": {
+    "rows": 600,
+    "roc_auc": 0.7612,
+    "brier_score": 0.1903,
+    "precision": 0.5257,
+    "recall": 0.8117,
+    "flagged_cases": 369,
+    "tp": 194,
+    "fp": 175,
+    "fn": 45
+  },
+  "constant_baseline": {
+    "rows": 600,
+    "roc_auc": 0.5,
+    "brier_score": 0.2398,
+    "precision": 0.3983,
+    "recall": 1.0,
+    "flagged_cases": 600,
+    "tp": 239,
+    "fp": 361,
+    "fn": 0
+  },
+  "test_by_synthetic_segment": {
+    "A": {
+      "rows": 300,
+      "roc_auc": 0.7597,
+      "brier_score": 0.1838,
+      "precision": 0.4749,
+      "recall": 0.8173,
+      "flagged_cases": 179,
+      "tp": 85,
+      "fp": 94,
+      "fn": 19
+    },
+    "B": {
+      "rows": 300,
+      "roc_auc": 0.7631,
+      "brier_score": 0.1968,
+      "precision": 0.5737,
+      "recall": 0.8074,
+      "flagged_cases": 190,
+      "tp": 109,
+      "fp": 81,
+      "fn": 26
+    }
+  },
+  "train_only_preprocessing": {
+    "median": [
+      13.31595871574911,
+      7.970565722746186,
+      1.0
+    ],
+    "mean": [
+      18.851080595538377,
+      8.016972923394443,
+      0.795
+    ],
+    "std": [
+      18.825729854340114,
+      1.1884431192872669,
+      0.8747555214013971
+    ]
+  },
+  "model_weights": [
+    -0.39146416534783274,
+    0.9740486067281743,
+    0.31680519839503096,
+    0.6872964532436595
+  ],
+  "data_sha256": "d101180849d52ccff502bbc83707f8fae0714c3307e9f0e25538b6f7c4c5f41a",
+  "limitations": [
+    "Synthetic independent data do not reproduce real temporal drift.",
+    "Segment A/B is arbitrary, not a protected attribute or a fairness certification.",
+    "No LLM, cloud deployment, real customer data or measured ROI."
+  ]
+}

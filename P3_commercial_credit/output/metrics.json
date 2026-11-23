@@ -1,0 +1,38 @@
+{
+  "base": {
+    "revenue_sgd": 25000000,
+    "ebitda_sgd": 3500000,
+    "ebit_sgd": 2875000,
+    "interest_sgd": 360000,
+    "net_debt_to_ebitda": 1.371,
+    "ebit_interest_coverage": 7.986,
+    "cash_conversion_cycle_days": 75,
+    "operating_working_capital_sgd": 4777397,
+    "debt_sgd": 6000000,
+    "cash_sgd": 1200000,
+    "dso": 60,
+    "dio": 55,
+    "dpo": 40
+  },
+  "stress": {
+    "revenue_sgd": 22500000,
+    "ebitda_sgd": 2250000,
+    "ebit_sgd": 1687500,
+    "interest_sgd": 560000,
+    "net_debt_to_ebitda": 2.667,
+    "ebit_interest_coverage": 3.013,
+    "cash_conversion_cycle_days": 105,
+    "operating_working_capital_sgd": 5825342,
+    "debt_sgd": 7000000,
+    "cash_sgd": 1000000,
+    "dso": 75,
+    "dio": 65,
+    "dpo": 35
+  },
+  "additional_working_capital_sgd": 1047945,
+  "limitations": [
+    "No audited statements, collateral valuation, cash-flow model or actual bank credit policy.",
+    "Coverage uses EBIT / interest, not EBITDA / interest or debt service coverage.",
+    "Working-capital delta mixes sales and payment-term changes; no causal decomposition claimed."
+  ]
+}

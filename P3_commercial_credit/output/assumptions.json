@@ -1,0 +1,25 @@
+{
+  "currency": "SGD",
+  "borrower": "Fictional APAC Components Pte Ltd",
+  "all_inputs": "invented for portfolio education",
+  "base": {
+    "revenue": 25000000,
+    "ebitda_margin": 0.14,
+    "debt": 6000000,
+    "cash": 1200000,
+    "interest_rate": 0.06,
+    "dso": 60,
+    "dio": 55,
+    "dpo": 40
+  },
+  "stress": {
+    "revenue": 22500000,
+    "ebitda_margin": 0.1,
+    "debt": 7000000,
+    "cash": 1000000,
+    "interest_rate": 0.08,
+    "dso": 75,
+    "dio": 65,
+    "dpo": 35
+  }
+}

@@ -1,0 +1,96 @@
+﻿<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>数据治理与可解释模型评估</title><style>body{font:16px/1.6 'Segoe UI','Microsoft YaHei',sans-serif;max-width:1000px;margin:40px auto;padding:0 24px}pre{background:#f3f5f3;padding:20px;white-space:pre-wrap;overflow-wrap:anywhere}a{color:#17624d}</style><h1>数据治理与可解释模型评估</h1><p>AI 辅助教学案例，2026 年 10 月 21 日本机运行。以下为实际代码输出；指标解释以 README 为准。</p><p>3,000 条独立合成记录，按编号留出；编号分割不证明真实时间泛化。当前 holdout AUC 0.7612，不能与 Kaggle 或业务风险模型成绩混为一谈。没有 LLM 或云端部署。</p><p><a href="README.md">运行说明</a> | <a href="run.py">源代码</a> | <a href="output/metrics.json">原始指标</a></p><pre>{
+  &quot;dataset&quot;: &quot;3000 independent synthetic operations cases ordered by case id&quot;,
+  &quot;features&quot;: [
+    &quot;queue_hours&quot;,
+    &quot;amount_log&quot;,
+    &quot;prior_exceptions&quot;
+  ],
+  &quot;blocked_columns&quot;: [
+    &quot;resolution_code&quot;,
+    &quot;case_id&quot;,
+    &quot;segment&quot;,
+    &quot;target&quot;
+  ],
+  &quot;split&quot;: {
+    &quot;train&quot;: 1800,
+    &quot;validation&quot;: 600,
+    &quot;test&quot;: 600
+  },
+  &quot;threshold_selected_on_validation&quot;: 0.3,
+  &quot;validation_recall_target&quot;: 0.75,
+  &quot;test&quot;: {
+    &quot;rows&quot;: 600,
+    &quot;roc_auc&quot;: 0.7612,
+    &quot;brier_score&quot;: 0.1903,
+    &quot;precision&quot;: 0.5257,
+    &quot;recall&quot;: 0.8117,
+    &quot;flagged_cases&quot;: 369,
+    &quot;tp&quot;: 194,
+    &quot;fp&quot;: 175,
+    &quot;fn&quot;: 45
+  },
+  &quot;constant_baseline&quot;: {
+    &quot;rows&quot;: 600,
+    &quot;roc_auc&quot;: 0.5,
+    &quot;brier_score&quot;: 0.2398,
+    &quot;precision&quot;: 0.3983,
+    &quot;recall&quot;: 1.0,
+    &quot;flagged_cases&quot;: 600,
+    &quot;tp&quot;: 239,
+    &quot;fp&quot;: 361,
+    &quot;fn&quot;: 0
+  },
+  &quot;test_by_synthetic_segment&quot;: {
+    &quot;A&quot;: {
+      &quot;rows&quot;: 300,
+      &quot;roc_auc&quot;: 0.7597,
+      &quot;brier_score&quot;: 0.1838,
+      &quot;precision&quot;: 0.4749,
+      &quot;recall&quot;: 0.8173,
+      &quot;flagged_cases&quot;: 179,
+      &quot;tp&quot;: 85,
+      &quot;fp&quot;: 94,
+      &quot;fn&quot;: 19
+    },
+    &quot;B&quot;: {
+      &quot;rows&quot;: 300,
+      &quot;roc_auc&quot;: 0.7631,
+      &quot;brier_score&quot;: 0.1968,
+      &quot;precision&quot;: 0.5737,
+      &quot;recall&quot;: 0.8074,
+      &quot;flagged_cases&quot;: 190,
+      &quot;tp&quot;: 109,
+      &quot;fp&quot;: 81,
+      &quot;fn&quot;: 26
+    }
+  },
+  &quot;train_only_preprocessing&quot;: {
+    &quot;median&quot;: [
+      13.31595871574911,
+      7.970565722746186,
+      1.0
+    ],
+    &quot;mean&quot;: [
+      18.851080595538377,
+      8.016972923394443,
+      0.795
+    ],
+    &quot;std&quot;: [
+      18.825729854340114,
+      1.1884431192872669,
+      0.8747555214013971
+    ]
+  },
+  &quot;model_weights&quot;: [
+    -0.39146416534783274,
+    0.9740486067281743,
+    0.31680519839503096,
+    0.6872964532436595
+  ],
+  &quot;data_sha256&quot;: &quot;d101180849d52ccff502bbc83707f8fae0714c3307e9f0e25538b6f7c4c5f41a&quot;,
+  &quot;limitations&quot;: [
+    &quot;Synthetic independent data do not reproduce real temporal drift.&quot;,
+    &quot;Segment A/B is arbitrary, not a protected attribute or a fairness certification.&quot;,
+    &quot;No LLM, cloud deployment, real customer data or measured ROI.&quot;
+  ]
+}</pre></html>

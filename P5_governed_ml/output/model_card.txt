@@ -1,0 +1,8 @@
+SYNTHETIC MODEL CARD
+Purpose: prioritize operations cases for human review, never automatically decline clients.
+Lineage: seed 27 -> synthetic CSV -> ordered 60/20/20 split -> train-only median/scale -> logistic model -> validation threshold -> test report.
+Schema: case_id ordered identifier; segment arbitrary A/B; queue_hours intake queue age; amount_log transaction amount scale; prior_exceptions historical count; target simulated review need.
+Leakage control: resolution_code is post-outcome information and excluded, along with identifiers/segment/target.
+Evaluation: compare ROC-AUC and Brier against constant baseline; report precision/recall and false alerts at the chosen threshold.
+Governance proposal: version dataset hashes and model weights; access by role; human review; monitor drift and escalation rates. These controls are proposed, not deployed.
+Privacy: no personal records; production retention and legal review would need organization-specific policies.

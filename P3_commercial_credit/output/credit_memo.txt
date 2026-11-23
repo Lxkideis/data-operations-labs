@@ -1,0 +1,9 @@
+FICTIONAL BORROWER - educational credit discussion
+Business: components supplier with a 75-day base cash conversion cycle.
+Base EBIT/interest 7.986x; stressed 3.013x.
+Operating working-capital requirement rises by SGD 1,047,945 in the joint stress scenario.
+Discussion: size a revolving facility to a verified borrowing base and seasonality; avoid relying solely on EBITDA.
+Before a credit decision: request audited statements, debt maturity schedule, customer concentration, aged receivables, inventory and FX exposures.
+Potential products to discuss: cash management, receivables finance and FX hedging if exposures are established. No actual product suitability assessment is performed.
+Monitoring proposal: quarterly leverage/coverage, overdue receivables and covenant headroom; thresholds require an actual lender policy.
+No claim of a real client engagement, approved facility or observed financial impact.

@@ -1,0 +1,35 @@
+﻿<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>本地 HTTP 可靠性实验</title><style>body{font:16px/1.6 'Segoe UI','Microsoft YaHei',sans-serif;max-width:1000px;margin:40px auto;padding:0 24px}pre{background:#f3f5f3;padding:20px;white-space:pre-wrap;overflow-wrap:anywhere}a{color:#17624d}</style><h1>本地 HTTP 可靠性实验</h1><p>AI 辅助教学案例，2026 年 10 月 21 日本机运行。以下为实际代码输出；指标解释以 README 为准。</p><p>此处在 Windows 本机跑通 180 个请求，仅可说明小型本地实验。不是大规模广告系统、跨区容灾、生产 SLO 或任职经历。延迟随主机变化，不能当作普适性能成绩。</p><p><a href="README.md">运行说明</a> | <a href="run.py">源代码</a> | <a href="output/metrics.json">原始指标</a></p><pre>{
+  &quot;environment&quot;: &quot;local host only, Python stdlib HTTP service&quot;,
+  &quot;slo_definition&quot;: &quot;200 status AND latency &lt;= 40ms; educational target 99%&quot;,
+  &quot;phases&quot;: {
+    &quot;baseline&quot;: {
+      &quot;requests&quot;: 60,
+      &quot;http_success_rate&quot;: 1.0,
+      &quot;good_request_rate&quot;: 1.0,
+      &quot;p95_latency_ms&quot;: 25.736,
+      &quot;observed_bad_requests&quot;: 0,
+      &quot;error_budget_burn_rate&quot;: 0.0
+    },
+    &quot;injected&quot;: {
+      &quot;requests&quot;: 60,
+      &quot;http_success_rate&quot;: 0.75,
+      &quot;good_request_rate&quot;: 0.6,
+      &quot;p95_latency_ms&quot;: 66.823,
+      &quot;observed_bad_requests&quot;: 24,
+      &quot;error_budget_burn_rate&quot;: 40.0
+    },
+    &quot;recovery&quot;: {
+      &quot;requests&quot;: 60,
+      &quot;http_success_rate&quot;: 1.0,
+      &quot;good_request_rate&quot;: 1.0,
+      &quot;p95_latency_ms&quot;: 17.565,
+      &quot;observed_bad_requests&quot;: 0,
+      &quot;error_budget_burn_rate&quot;: 0.0
+    }
+  },
+  &quot;limitations&quot;: [
+    &quot;Latency depends on this workstation; this is not a production benchmark.&quot;,
+    &quot;60 requests per phase and no multi-region/DR/real advertising system.&quot;,
+    &quot;Recovery is removal of injected behavior; it does not demonstrate production remediation.&quot;
+  ]
+}</pre></html>

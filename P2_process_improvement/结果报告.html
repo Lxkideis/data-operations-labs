@@ -1,0 +1,61 @@
+﻿<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>运营流程改进</title><style>body{font:16px/1.6 'Segoe UI','Microsoft YaHei',sans-serif;max-width:1000px;margin:40px auto;padding:0 24px}pre{background:#f3f5f3;padding:20px;white-space:pre-wrap;overflow-wrap:anywhere}a{color:#17624d}</style><h1>运营流程改进</h1><p>AI 辅助教学案例，2026 年 10 月 21 日本机运行。以下为实际代码输出；指标解释以 README 为准。</p><p>基准中位数 31.34 小时，路由场景 20.85 小时，差异由设定排队时间的假设产生。不是实际上线效果、实测因果提升、人员节省或真实商业收益。</p><p><a href="README.md">运行说明</a> | <a href="run.py">源代码</a> | <a href="output/metrics.json">原始指标</a></p><pre>{
+  &quot;dataset&quot;: &quot;synthetic paired cases; fixed seed 2027&quot;,
+  &quot;baseline&quot;: {
+    &quot;cases&quot;: 1500,
+    &quot;median_hours&quot;: 31.34,
+    &quot;p90_hours&quot;: 59.16,
+    &quot;sla_breach_rate&quot;: 0.162,
+    &quot;rework_rate&quot;: 0.1493,
+    &quot;total_queue_hours&quot;: 40319.79
+  },
+  &quot;routing_scenario&quot;: {
+    &quot;cases&quot;: 1500,
+    &quot;median_hours&quot;: 20.85,
+    &quot;p90_hours&quot;: 48.34,
+    &quot;sla_breach_rate&quot;: 0.102,
+    &quot;rework_rate&quot;: 0.1493,
+    &quot;total_queue_hours&quot;: 26756.18
+  },
+  &quot;assumptions&quot;: [
+    &quot;Queue time reduced 20% for complex and 45% for standard cases by construction.&quot;,
+    &quot;No observed rollout, realized savings, staffing reduction or causal evidence.&quot;
+  ],
+  &quot;segments&quot;: {
+    &quot;standard&quot;: {
+      &quot;baseline&quot;: {
+        &quot;cases&quot;: 1053,
+        &quot;median_hours&quot;: 26.92,
+        &quot;p90_hours&quot;: 42.35,
+        &quot;sla_breach_rate&quot;: 0.0256,
+        &quot;rework_rate&quot;: 0.1102,
+        &quot;total_queue_hours&quot;: 21998.65
+      },
+      &quot;scenario&quot;: {
+        &quot;cases&quot;: 1053,
+        &quot;median_hours&quot;: 17.46,
+        &quot;p90_hours&quot;: 26.79,
+        &quot;sla_breach_rate&quot;: 0.0,
+        &quot;rework_rate&quot;: 0.1102,
+        &quot;total_queue_hours&quot;: 12099.27
+      }
+    },
+    &quot;complex&quot;: {
+      &quot;baseline&quot;: {
+        &quot;cases&quot;: 447,
+        &quot;median_hours&quot;: 47.15,
+        &quot;p90_hours&quot;: 72.43,
+        &quot;sla_breach_rate&quot;: 0.4832,
+        &quot;rework_rate&quot;: 0.2416,
+        &quot;total_queue_hours&quot;: 18321.14
+      },
+      &quot;scenario&quot;: {
+        &quot;cases&quot;: 447,
+        &quot;median_hours&quot;: 39.59,
+        &quot;p90_hours&quot;: 58.99,
+        &quot;sla_breach_rate&quot;: 0.3423,
+        &quot;rework_rate&quot;: 0.2416,
+        &quot;total_queue_hours&quot;: 14656.91
+      }
+    }
+  }
+}</pre></html>

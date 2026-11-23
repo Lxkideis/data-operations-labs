@@ -1,0 +1,7 @@
+SYNTHETIC CASE - payment controls and client cash visibility
+210 exception records require review; these are not measured financial losses.
+Prioritize duplicate/currency exceptions before exposing figures to treasury users.
+Use currency-specific aging queues; assign an owner and reconciliation SLA to every exception.
+Proposed pilot: review a sample with a finance stakeholder, agree on net/fee semantics, then measure false alerts and resolution time.
+For Citi Services: connect unresolved receivables to cash visibility and working-capital conversations.
+For Stripe: explain key uniqueness, idempotent runs, matching precedence and a safe backfill.

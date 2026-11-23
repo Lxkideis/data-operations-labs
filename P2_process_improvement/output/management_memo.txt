@@ -1,0 +1,8 @@
+SYNTHETIC CASE - routing proposal
+Recommendation: test a standard-case triage rule with the process owner; preserve manual escalation for complex cases.
+Current flow: intake -> queue -> review -> possible rework -> closure.
+Proposed flow: intake -> validation -> tier routing -> review -> closure.
+Pilot design: randomized comparable cases if feasible; report P90 and breach rates by tier, not only averages.
+Guardrails: review accuracy, escalation rate and staff workload. Revert if error rates increase.
+RACI proposal: Operations owns process; analyst measures; compliance approves control changes; engineering implements. These are hypothetical roles, not actual collaborators.
+Risks: omitted arrival patterns/capacity constraints; queue reductions are assumptions. Do not claim saved business hours.

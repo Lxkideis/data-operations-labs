@@ -1,0 +1,7 @@
+LOCAL LAB INCIDENT REVIEW
+Trigger: deliberate 503 responses on every fourth request; 65ms handler delay on every fifth request.
+Detection: request-level status and elapsed-time SLI; evaluate burn against a 99% lab target.
+Isolation: compare phase CSVs and HTTP status vs latency. Root cause is known injected handler behavior.
+Recovery: disable injected phase and rerun requests; inspect host-dependent measured results.
+Follow-up: add dependency timeout tests, concurrent saturation sweeps and actual Linux process/network inspection.
+No production outage, on-call ownership, disaster recovery exercise or MTTR claim.

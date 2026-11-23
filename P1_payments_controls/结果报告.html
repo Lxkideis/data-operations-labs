@@ -1,0 +1,36 @@
+﻿<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>支付对账与现金管理</title><style>body{font:16px/1.6 'Segoe UI','Microsoft YaHei',sans-serif;max-width:1000px;margin:40px auto;padding:0 24px}pre{background:#f3f5f3;padding:20px;white-space:pre-wrap;overflow-wrap:anywhere}a{color:#17624d}</style><h1>支付对账与现金管理</h1><p>AI 辅助教学案例，2026 年 10 月 21 日本机运行。以下为实际代码输出；指标解释以 README 为准。</p><p>10,000 为本地合成 ledger 记录，210 为故意注入并识别的异常记录（200 条 ledger 异常加 10 条孤立 partner 记录）。不是发现真实支付错误，也不是挽回损失。账龄金额为待复核敞口。</p><p><a href="README.md">运行说明</a> | <a href="run.py">源代码</a> | <a href="output/metrics.json">原始指标</a></p><pre>{
+  &quot;dataset&quot;: &quot;synthetic seeded payments, 2027 scenario&quot;,
+  &quot;seed&quot;: 27,
+  &quot;ledger_payments&quot;: 10000,
+  &quot;reconciliation_counts&quot;: {
+    &quot;orphan&quot;: 10,
+    &quot;missing&quot;: 50,
+    &quot;duplicate&quot;: 50,
+    &quot;amount&quot;: 50,
+    &quot;currency&quot;: 50,
+    &quot;matched&quot;: 9800
+  },
+  &quot;exceptions&quot;: 210,
+  &quot;unresolved_ledger_exposure_by_currency_age_cents&quot;: {
+    &quot;SGD:8-30&quot;: 5678769,
+    &quot;USD:8-30&quot;: 9691974,
+    &quot;EUR:8-30&quot;: 6124673,
+    &quot;SGD:0-7&quot;: 6336732,
+    &quot;USD:31+&quot;: 4781799,
+    &quot;EUR:31+&quot;: 6706675,
+    &quot;SGD:31+&quot;: 5405049,
+    &quot;EUR:0-7&quot;: 4153594,
+    &quot;USD:0-7&quot;: 2516247
+  },
+  &quot;partner_raw_fee_basis_points&quot;: {
+    &quot;EUR&quot;: 291.18,
+    &quot;JPY&quot;: 290.99,
+    &quot;SGD&quot;: 291.17,
+    &quot;USD&quot;: 291.17
+  },
+  &quot;limitations&quot;: [
+    &quot;Raw partner fee metric includes injected duplicates and corrupt rows; quarantine before commercial use.&quot;,
+    &quot;Unresolved exposure is a review queue, not proven cash loss or a sum across currencies.&quot;,
+    &quot;No refunds, FX, partial settlement, production API or real client records.&quot;
+  ]
+}</pre></html>

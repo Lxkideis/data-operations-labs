@@ -1,0 +1,35 @@
+{
+  "environment": "local host only, Python stdlib HTTP service",
+  "slo_definition": "200 status AND latency <= 40ms; educational target 99%",
+  "phases": {
+    "baseline": {
+      "requests": 60,
+      "http_success_rate": 1.0,
+      "good_request_rate": 1.0,
+      "p95_latency_ms": 25.45,
+      "observed_bad_requests": 0,
+      "error_budget_burn_rate": 0.0
+    },
+    "injected": {
+      "requests": 60,
+      "http_success_rate": 0.75,
+      "good_request_rate": 0.6,
+      "p95_latency_ms": 66.277,
+      "observed_bad_requests": 24,
+      "error_budget_burn_rate": 40.0
+    },
+    "recovery": {
+      "requests": 60,
+      "http_success_rate": 1.0,
+      "good_request_rate": 1.0,
+      "p95_latency_ms": 18.829,
+      "observed_bad_requests": 0,
+      "error_budget_burn_rate": 0.0
+    }
+  },
+  "limitations": [
+    "Latency depends on this workstation; this is not a production benchmark.",
+    "60 requests per phase and no multi-region/DR/real advertising system.",
+    "Recovery is removal of injected behavior; it does not demonstrate production remediation."
+  ]
+}

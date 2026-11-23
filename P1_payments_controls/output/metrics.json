@@ -1,0 +1,36 @@
+{
+  "dataset": "synthetic seeded payments, 2027 scenario",
+  "seed": 27,
+  "ledger_payments": 10000,
+  "reconciliation_counts": {
+    "orphan": 10,
+    "missing": 50,
+    "duplicate": 50,
+    "amount": 50,
+    "currency": 50,
+    "matched": 9800
+  },
+  "exceptions": 210,
+  "unresolved_ledger_exposure_by_currency_age_cents": {
+    "SGD:8-30": 5678769,
+    "USD:8-30": 9691974,
+    "EUR:8-30": 6124673,
+    "SGD:0-7": 6336732,
+    "USD:31+": 4781799,
+    "EUR:31+": 6706675,
+    "SGD:31+": 5405049,
+    "EUR:0-7": 4153594,
+    "USD:0-7": 2516247
+  },
+  "partner_raw_fee_basis_points": {
+    "EUR": 291.18,
+    "JPY": 290.99,
+    "SGD": 291.17,
+    "USD": 291.17
+  },
+  "limitations": [
+    "Raw partner fee metric includes injected duplicates and corrupt rows; quarantine before commercial use.",
+    "Unresolved exposure is a review queue, not proven cash loss or a sum across currencies.",
+    "No refunds, FX, partial settlement, production API or real client records."
+  ]
+}
